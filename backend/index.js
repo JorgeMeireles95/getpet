@@ -24,6 +24,3 @@ app.get('/', (req, res) => {
 });
 
 
-app.listen(5000, () => {
-  console.log('o server está rodando http://localhost:3000');
-});
