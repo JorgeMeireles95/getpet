@@ -1,26 +1,23 @@
-const express = require('express');
-const cors = require('cors');
-const app = express();
+const express = require('express')
+const cors = require('cors')
 
+const app = express()
 
+// Config JSON response
+app.use(express.json())
 
-//configura JSON para o express
-app.use(express.json());
-                                       //libera para acessar a api
-app.use(cors({credentials: true, origin:'http://localhost:3000'})) // permite que o front-end acesse o back-end
+// Solve CORS
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }))
 
+// Public folder for images
+app.use(express.static('public'))
 
+// Routes
+const PetRoutes = require('./routes/PetRoutes')
+const UserRoutes = require('./routes/UserRoutes')
 
+app.use('/pets', PetRoutes)
+app.use('/users', UserRoutes)
 
-//Imagens
-app.use(express.static('public'));
-
-
-
-//Rotas
-
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
+app.listen(5000)
 
