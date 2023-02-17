@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
 
 
-async function connect() {
-   await mongoose.connect('mongodb://localhost:27017/getapet') 
-        console.log('Conectado ao banco de dados');
+async function main() {
+
+    mongoose.set('strictQuery', true);
+    await mongoose.connect('mongodb://localhost:27017/getapet'), 
+    console.log('Conectado ao  MongoDB');
 }
 
 
-
-connect().catch(error => console.log(error));
-
-
-
+main().catch(err => console.log(err));
 
 module.exports = mongoose;
