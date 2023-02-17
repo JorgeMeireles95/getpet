@@ -8,23 +8,27 @@ const User = mongoose.model(
 
     name:{
         type: String,
-        required
+        required:true
     },
     email:{
         type: String,
-        required
+        required:true
+    },
+    password:{
+        type: String,
+        required:true
     },
     image:{
         type: String,
     },
     phone:{
         type: String,
-        required
-    }
+        required:true
+    },
 
-},
-// quando dado for criado ou atualizado, ele vai criar um campo chamado createdAt e updatedAt
-{timestamps: true}),
+    },
+    // quando dado for criado ou atualizado, ele vai criar um campo chamado createdAt e updatedAt
+    {timestamps: true}),
 );
 
 
